@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where in the World? | eBird GeoGuesser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="."><span class="brand-mark">◎</span><span>eBird <em>GeoGuesser</em></span></a>
+      <div class="round-status"><span class="live-dot"></span><span id="roundLabel">ROUND 01</span><span class="slash">/</span><span id="scoreLabel">000 PTS</span></div>
+      <button class="icon-button" id="newRoundButton" title="Start a new round" aria-label="Start a new round">↻</button>
+    </header>
+
+    <section class="game-grid">
+      <article class="clue-panel">
+        <div class="title-row"><h1>Where was<br><span>this checklist</span> made?</h1></div>
+        <div class="mode-picker" aria-label="Game mode"><span class="eyebrow">MAP RANGE</span><div class="mode-buttons"><button class="mode-button active" data-mode="usa">USA</button><button class="mode-button" data-mode="world">WORLD</button></div></div>
+
+        <div class="checklist-card" id="checklistCard">
+          <div class="card-header"><span class="bird-icon">♧</span><div><div class="card-kicker">OBSERVER'S CHECKLIST</div><strong id="locationHint">Finding a field note...</strong></div></div>
+          <div class="facts">
+            <div><span>DATE</span><strong id="dateValue">—</strong></div>
+            <div><span>TIME</span><strong id="timeValue">—</strong></div>
+          </div>
+          <div class="species-section"><div class="species-heading"><span>SPECIES SEEN</span><strong id="speciesValue">—</strong></div><ul class="species-list" id="speciesList"><li>Loading bird list...</li></ul></div>
+          <div class="comment"><span class="quote-mark">“</span><p id="commentValue">Loading a real eBird checklist...</p></div>
+        </div>
+
+        <div class="controls">
+          <div class="round-copy"><span id="pinStatus">Drop a pin</span></div>
+          <button class="submit-button" id="submitButton" disabled>LOCK IN GUESS <span>→</span></button>
+        </div>
+        <div class="message" id="message" role="status"></div>
+      </article>
+
+      <section class="map-wrap"><div id="map"></div><div class="map-hint">CLICK THE MAP TO PLACE YOUR PIN</div><div class="result-overlay" id="resultOverlay"><span class="eyebrow">ROUND COMPLETE</span><strong id="resultPoints">+0 POINTS</strong><span id="resultDistance">—</span><button id="nextRoundButton">NEXT CHECKLIST →</button></div></section>
+    </section>
+
+    <footer><span>CHECKLISTS FROM eBird</span></footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
